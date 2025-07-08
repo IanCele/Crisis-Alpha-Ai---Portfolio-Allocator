@@ -1,0 +1,11 @@
+streamlit==1.36.0
+openai==1.35.10
+langchain==0.2.9
+langchain-openai==0.1.13
+yfinance==0.2.40
+newsapi-python==0.2.7
+plotly==5.22.0
+transformers==4.42.0
+huggingface_hub==0.23.4
+python-dotenv==1.0.1
+pandas==2.1.4 # Added for DataFrame usage
