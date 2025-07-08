@@ -1,0 +1,5 @@
+# Create structured repository
+mkdir crisis-alpha-ai
+cd crisis-alpha-ai
+mkdir -p .streamlit src pages assets
+touch app.py src/allocator.py src/news_scraper.py requirements.txt
