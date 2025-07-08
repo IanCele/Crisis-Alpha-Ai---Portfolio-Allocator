@@ -1,0 +1,15 @@
+crisis-alpha-ai/
+├── .streamlit/
+│   ├── secrets.toml
+├── src/
+│   ├── allocator.py       # Portfolio logic
+│   ├── news_scraper.py    # Enhanced news integration
+│   ├── prompts.py         # GPT-4 prompt templates
+├── pages/
+│   ├── backtest.py        # Historical validation
+├── assets/
+│   ├── crisis_framework.png
+├── .gitignore
+├── requirements.txt
+├── app.py                 # Main Streamlit app
+└── README.md
