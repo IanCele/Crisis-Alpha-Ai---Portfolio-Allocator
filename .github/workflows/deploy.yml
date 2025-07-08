@@ -22,7 +22,7 @@ jobs:
         uses: huggingface/huggingface_hub@main
         with:
           hf_token: ${{ secrets.HF_TOKEN }}
-          repo_id: your-username/crisis-alpha-ai
+          repo_id: iancele/crisis-alpha-ai
           directory: .
           type: space
           space_sdk: streamlit
