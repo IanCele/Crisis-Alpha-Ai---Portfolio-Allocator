@@ -1,0 +1,28 @@
+name: Deploy to Hugging Face
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+        
+      - name: Deploy to Hugging Face
+        uses: huggingface/huggingface_hub@main
+        with:
+          hf_token: ${{ secrets.HF_TOKEN }}
+          repo_id: your-username/crisis-alpha-ai
+          directory: .
+          type: space
+          space_sdk: streamlit
