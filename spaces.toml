@@ -1,0 +1,6 @@
+[space]
+title = "Crisis Alpha AI Dashboard"
+sdk = "streamlit"
+app_file = "app.py"
+python_version = "3.10"
+sdk_version = "1.36.0"
