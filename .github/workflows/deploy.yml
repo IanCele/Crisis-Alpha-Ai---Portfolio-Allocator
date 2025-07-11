@@ -1,4 +1,5 @@
-name: Deploy to Hugging Face
+name: Deploy to Streamlit
+
 on:
   push:
     branches: [main]
@@ -10,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         
-      - name: Set up Python
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
@@ -18,11 +19,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
         
-      - name: Deploy to Hugging Face
-        uses: huggingface/huggingface_hub@main
-        with:
-          hf_token: ${{ secrets.HF_TOKEN }}
-          repo_id: iancele/crisis-alpha-ai
-          directory: .
-          type: space
-          space_sdk: streamlit
+      - name: Run Streamlit app
+        run: |
+          echo "Starting Streamlit..."
+          streamlit run app.py --server.port ${{ env.PORT }} &
+          sleep 5
+          curl --retry 5 --retry-delay 3 --retry-max-time 30 --connect-timeout 20 http://localhost:${{ env.PORT }}
+        env:
+          PORT: 8501
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
